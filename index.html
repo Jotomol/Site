@@ -3,346 +3,93 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ehrmann Engineering – Beratung & Dienstleistungen · Additive Fertigung & Simulation</title>
-  <meta name="description" content="Beratung und Engineering für Additive Fertigung (FDM/FFF), Materialmodellierung, Prozess‑Struktur‑gekoppelte Simulation, DoE, Toolchains und Prototyping." />
-  <meta name="author" content="Jonas Ehrmann" />
+  <title>Ehrmann Engineering – Additive Fertigung & Simulation</title>
+  <meta name="description" content="Ehrmann Engineering – Beratung, Forschung und Entwicklung in den Bereichen Additive Fertigung, Simulation und Materialmodellierung." />
   <meta property="og:title" content="Ehrmann Engineering · Additive Fertigung & Simulation" />
-  <meta property="og:description" content="Additive Fertigung, Materialmodelle, Simulation, Toolchains – pragmatisch, akademisch fundiert, industrienah." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="" />
+  <meta property="og:description" content="Additive Fertigung, Materialmodelle, Simulation, Prozessanalyse – wissenschaftlich fundiert, praxisorientiert und unabhängig." />
   <meta name="color-scheme" content="light dark" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧩</text></svg>">
   <style>
-    :root{
-      /* Light theme (default) */
-      --bg:#f7f9fc; /* helles, neutrales Grau-Blau */
-      --bg-2:#eef3fb;
-      --brand:#2156a5; /* Akzent Dunkelblau */
-      --acc:#164ea0;
-      --ok:#0f8f5a; --warn:#b66c00; --err:#c43131;
-      --text:#0c1326; --muted:#394559; --ink:#0c1326; --card:#ffffff;
-      --radius:18px; --shadow:0 10px 30px rgba(10,20,40,.08);
-      --max:1120px; --pad:clamp(16px,2vw,28px);
-      --border: 1px solid rgba(10,20,40,.08);
+    :root {
+      --bg:#f7f9fc; --bg-2:#eef3fb; --brand:#2156a5; --acc:#164ea0; --text:#0c1326; --muted:#394559; --card:#ffffff;
+      --radius:18px; --shadow:0 10px 30px rgba(10,20,40,.08); --border:1px solid rgba(10,20,40,.08);
     }
     @media (prefers-color-scheme: dark){
-      :root{
-        --bg:#0b1b3a; --bg-2:#0f2551; --brand:#5ab0ff; --acc:#a5d6ff;
-        --text:#e8f0ff; --muted:#c9d7ff; --ink:#0c1326; --card:#0d2146;
-        --shadow:0 10px 30px rgba(0,0,0,.35);
-        --border: 1px solid rgba(255,255,255,.12);
-      }
+      :root{--bg:#0b1b3a;--bg-2:#0f2551;--brand:#5ab0ff;--acc:#a5d6ff;--text:#e8f0ff;--muted:#c9d7ff;--card:#0d2146;--border:1px solid rgba(255,255,255,.12);--shadow:0 10px 30px rgba(0,0,0,.35);}
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:radial-gradient(1200px 800px at 80% -10%,rgba(33,86,165,.08),transparent),var(--bg);color:var(--text);}
+    body{margin:0;font:16px/1.6 system-ui,Segoe UI,Roboto,Inter,Arial,sans-serif;background:var(--bg);color:var(--text);}
     a{color:var(--acc);text-decoration:none}
     a:hover{text-decoration:underline}
-    .wrap{max-width:var(--max);margin:auto;padding:0 var(--pad)}
-    header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(8px);background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,.65));border-bottom:var(--border);z-index:40}
-    @media (prefers-color-scheme: dark){ header{background:linear-gradient(180deg,rgba(11,27,58,.9),rgba(11,27,58,.6));} }
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px var(--pad)}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.3px;color:var(--text)}
-    .logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--brand),#9bd1ff);display:grid;place-items:center;box-shadow:var(--shadow)}
-    .logo svg{width:22px;height:22px;fill:#082246}
-    .nav a.btn{padding:10px 14px;border:var(--border);border-radius:12px;background:#fff;box-shadow:var(--shadow)}
-    @media (prefers-color-scheme: dark){ .nav a.btn{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));} }
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:64px var(--pad) 40px}
-    @media (max-width:900px){.hero{grid-template-columns:1fr;}}
-    .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:.2em 0 .4em}
-    .lead{font-size:1.05rem;color:var(--muted)}
-    .card{background:#fff;border:var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
-    @media (prefers-color-scheme: dark){ .card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));} }
-    .p{padding:clamp(16px,2.4vw,28px)}
-    .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-    .badge{font-size:.85rem;padding:6px 10px;border:var(--border);border-radius:999px;background:#fff;box-shadow:var(--shadow)}
-    @media (prefers-color-scheme: dark){ .badge{background:rgba(255,255,255,.06);} }
-    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:18px}
-    @media (max-width:900px){.kpis{grid-template-columns:repeat(2,1fr);}}
-    .kpi{padding:16px;border-radius:14px;background:#fff;border:var(--border);box-shadow:var(--shadow)}
-    @media (prefers-color-scheme: dark){ .kpi{background:var(--card);} }
-    .kpi b{display:block;font-size:1.6rem}
-    section{padding:44px 0}
-    h2{font-size:clamp(22px,2.8vw,30px);margin:0 0 12px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    @media (max-width:900px){.grid{grid-template-columns:1fr}}
-    .list{display:grid;gap:10px;margin:0;padding:0;list-style:none}
-    .list li{padding:10px 12px;border-radius:12px;background:#fff;border:var(--border);box-shadow:var(--shadow)}
-    @media (prefers-color-scheme: dark){ .list li{background:var(--card);} }
-    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
-    .button{display:inline-block;padding:12px 16px;border-radius:12px;border:var(--border);background:#fff;color:var(--acc);font-weight:700;box-shadow:var(--shadow)}
-    .button.secondary{background:#fff;color:inherit}
-    @media (prefers-color-scheme: dark){ .button{background:linear-gradient(180deg,rgba(90,176,255,.22),rgba(90,176,255,.12));color:#00224b;border:1px solid rgba(255,255,255,.18)} .button.secondary{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));color:var(--text)} }
-    .split{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    @media (max-width:900px){.split{grid-template-columns:1fr}}
-    footer{padding:30px var(--pad) 60px;background:var(--bg-2);border-top:var(--border)}
-    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px}
-    @media (max-width:900px){.footer-grid{grid-template-columns:1fr}}
-    .fine{color:var(--muted);font-size:.95rem}
-    .legal{font-size:.9rem;color:var(--muted)}
-    .notice{font-size:.85rem;opacity:.85}
-    .pill{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border-radius:999px;border:var(--border);background:#fff;box-shadow:var(--shadow)}
-    @media (prefers-color-scheme: dark){ .pill{background:rgba(255,255,255,.04);} }
-    .table{width:100%;border-collapse:separate;border-spacing:0 10px}
-    .table tr{background:#fff}
-    .table td{padding:14px;border-top:var(--border);border-bottom:var(--border)}
-    .table tr td:first-child{border-left:var(--border);border-top-left-radius:12px;border-bottom-left-radius:12px;font-weight:600}
-    .table tr td:last-child{border-right:var(--border);border-top-right-radius:12px;border-bottom-right-radius:12px}
-    .lang{position:fixed;right:14px;bottom:14px}
-    .lang button{font-size:.9rem}
-    .hide{display:none}
-    .muted{opacity:.85}
+    header{position:sticky;top:0;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:var(--border);padding:10px 20px;z-index:10}
+    @media (prefers-color-scheme: dark){header{background:rgba(11,27,58,.9);}}
+    .wrap{max-width:1100px;margin:auto;padding:0 20px}
+    .logo{font-weight:700;letter-spacing:.3px;font-size:1.1rem;color:var(--brand)}
+    main{padding:60px 0}
+    h1{font-size:clamp(28px,4vw,44px);margin-bottom:0.4em}
+    h2{font-size:clamp(22px,3vw,30px);margin:1.8em 0 0.6em}
+    p.lead{font-size:1.1rem;color:var(--muted);max-width:700px}
+    .card{background:var(--card);border:var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;margin-top:20px}
+    ul{list-style:none;padding:0;margin:0}
+    li{margin:10px 0;padding:10px 14px;border-radius:12px;background:var(--card);border:var(--border);}
+    footer{background:var(--bg-2);border-top:var(--border);padding:40px 20px;margin-top:60px}
+    footer p{margin:4px 0;color:var(--muted);font-size:0.95rem}
+    .button{display:inline-block;margin-top:20px;padding:12px 18px;border-radius:12px;background:var(--brand);color:#fff;font-weight:600;text-decoration:none}
   </style>
-  <script>
-    // Einfacher Sprachumschalter (DE/EN). EN ist komprimiert gehalten.
-    function setLang(l){
-      document.querySelectorAll('[data-lang]').forEach(el=>{
-        el.classList.toggle('hide', el.getAttribute('data-lang')!==l);
-      });
-      localStorage.setItem('lang', l);
-    }
-    document.addEventListener('DOMContentLoaded',()=>{
-      setLang(localStorage.getItem('lang')||'de');
-    });
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Ehrmann Engineering",
-    "url":"",
-    "areaServed":"DE",
-    "sameAs":[],
-    "knowsAbout":["Additive Fertigung","FDM","FFF","TPU","PLA","PETG","Materialmodell","Prozess-Struktur-Kopplung","Finite-Elemente","CalculiX","Abaqus","Gmsh","PyVista","Python","HPC"],
-    "founder": {"@type":"Person","name":"Jonas Ehrmann"}
-  }
-  </script>
 </head>
 <body>
 <header>
-  <div class="nav wrap">
-    <div class="brand">
-      <div class="logo" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 2l7 4v6l-7 4-7-4V6l7-4zm0 2.2L7 6.7v4.6l5 2.9 5-2.9V6.7L12 4.2zM6 14l6 3.4 6-3.4v2L12 18 6 16v-2z"/></svg>
-      </div>
-      <span>Ehrmann Engineering</span>
-      <span class="pill"><span style="width:8px;height:8px;background:var(--ok);border-radius:99px;display:inline-block"></span> Verfügbar für Projekte</span>
-    </div>
-    <nav>
-      <a href="#themen">Themen</a>
-      &nbsp;·&nbsp;
-      <a href="#referenzen">Referenzen</a>
-      &nbsp;·&nbsp;
-      <a href="#kontakt" class="btn">Kontakt</a>
-    </nav>
-  </div>
+  <div class="wrap logo">Ehrmann Engineering</div>
 </header>
 
-<main>
-  <section class="hero wrap">
-    <div>
-      <h1 data-lang="de">Additive Fertigung · Simulation · Toolchains – von der Idee bis zum belastbaren Bauteil</h1>
-      <h1 class="hide" data-lang="en">Additive Manufacturing · Simulation · Toolchains – from concept to validated parts</h1>
-      <p class="lead" data-lang="de">Ich unterstütze Unternehmen und Forschungsteams bei <b>FDM/FFF‑Bauteilen</b> – mit <b>Materialcharakterisierung</b> (PLA, PETG, TPU), <b>prozess‑struktur‑gekoppelter Simulation</b> (CalculiX/Abaqus), <b>DoE</b>, <b>G‑Code/Orientierungs‑Mapping</b> und <b>Custom‑Toolchains</b> (Python, Gmsh, PyVista). Praxisnah, reproduzierbar, dokumentiert.</p>
-      <p class="lead hide" data-lang="en">I help teams deliver robust FDM/FFF parts with material characterization, process‑structure coupled simulation, DoE, orientation & fill mapping, and custom Python toolchains.</p>
-      <div class="badges">
-        <span class="badge">FDM/FFF · PLA · PETG · TPU</span>
-        <span class="badge">Pseudo‑Hill · Orthotropie</span>
-        <span class="badge">CalculiX · Abaqus · Gmsh · PyVista</span>
-        <span class="badge">HPC · WSL2 · Linux/Windows</span>
-        <span class="badge">Polar/Core‑R‑Theta Systeme</span>
-      </div>
-      <div class="cta">
-        <a class="button" href="#kontakt">Unverbindliches Erstgespräch</a>
-        <a class="button secondary" href="#impressum">Impressum</a>
-      </div>
-      <div class="kpis">
-        <div class="kpi"><b>3–10×</b><span class="muted">schnellere Iterationen durch automatisierte Toolchains</span></div>
-        <div class="kpi"><b>DoE‑basiert</b><span class="muted">Parameterfindung & Validierung</span></div>
-        <div class="kpi"><b>Open‑Tooling</b><span class="muted">Keine proprietären Lizenzen nötig</span></div>
-        <div class="kpi"><b>Dokumentiert</b><span class="muted">Reproducible Research & Reports</span></div>
-      </div>
-    </div>
-    <div class="card p">
-      <h2>Schwerpunkte</h2>
-      <ul class="list">
-        <li>Materialmodelle (PLA, PETG, TPU) – Zug, Kriechen, Anisotropie</li>
-        <li>Orientierungs‑ & Füllgrad‑Mapping → FE‑Deck (CalculiX/Abaqus)</li>
-        <li>Python‑Toolchains (Gmsh, meshio, PyVista, Qt‑GUIs)</li>
-        <li>Custom Slicer‑Postprocessing, G‑Code → Netz‑Abbildung</li>
-        <li>Polar/Core‑R‑Theta‑Drucker · Sensorless Homing · RRF</li>
-        <li>HPC/WSL‑CI, reproduzierbare Builds, Batch‑Simulationen</li>
-      </ul>
-      <p class="notice">Hinweis: Umsetzung mit Open‑Source‑Stacks – keine kostenpflichtige Software erforderlich.</p>
-    </div>
+<main class="wrap">
+  <section>
+    <h1>Additive Fertigung · Simulation · Materialmodellierung</h1>
+    <p class="lead">Ehrmann Engineering steht für fundierte Expertise an der Schnittstelle von additiver Fertigung (FDM/FFF), Werkstoffwissenschaft und numerischer Simulation. Der Fokus liegt auf der Entwicklung, Analyse und Optimierung additiv gefertigter Kunststoffbauteile – von der Materialcharakterisierung bis zur Simulation des Bauteilverhaltens.</p>
   </section>
 
-  <section id="themen" class="wrap">
-    <h2>Themen</h2>
-    <div class="grid">
-      <div class="card p">
-        <h3>Machbarkeitsstudien & DfAM</h3>
-        <ul class="list">
-          <li>Anforderungsanalyse, Werkstoffwahl, Fertigungsstrategie</li>
-          <li>Geometrie‑Audit & DfAM‑Guidelines für FDM/FFF</li>
-          <li>Kosten‑/Zeit‑Abschätzung, Risikoanalyse</li>
-        </ul>
-      </div>
-      <div class="card p">
-        <h3>Material & Prozess</h3>
-        <ul class="list">
-          <li>DoE für Druckparameter, Tempern, Nachbehandlung</li>
-          <li>Thermische Analytik (DSC/TGA/IR) & Mechanik</li>
-          <li>Datenaufbereitung, Kurvenfit (z. B. Pseudo‑Hill)</li>
-        </ul>
-      </div>
-      <div class="card p">
-        <h3>Simulation & Validierung</h3>
-        <ul class="list">
-          <li>Prozess‑Struktur‑Kopplung, Orientierung/Fill → FE</li>
-          <li>CalculiX/Abaqus Deck‑Erzeugung, Batch‑Runs</li>
-          <li>Abgleich Messung ↔ Simulation, Berichte</li>
-        </ul>
-      </div>
-      <div class="card p">
-        <h3>Toolchains & Automatisierung</h3>
-        <ul class="list">
-          <li>Python‑Pipelines, Qt‑GUIs, Gmsh/Mesh‑Automation</li>
-          <li>CI auf WSL/Linux, Container‑Setups</li>
-          <li>Schulungen & Übergabe, Doku</li>
-        </ul>
-      </div>
-      <div class="card p">
-        <h3>Prototyping & Sonderlösungen</h3>
-        <ul class="list">
-          <li>Polar‑/Mehr‑Achsen‑Konzepte, RRF‑Konfiguration</li>
-          <li>Slicer‑Erweiterungen, Mapping‑Skripte</li>
-          <li>Bauteil‑Optimierung (Topologie/Orientierung)</li>
-        </ul>
-      </div>
-      <div class="card p">
-        <h3>Workshops & Training</h3>
-        <ul class="list">
-          <li>FDM/FFF Best‑Practices & Troubleshooting</li>
-          <li>Materialverständnis & Datenmanagement</li>
-          <li>FE‑Einstieg bis fortgeschritten (CalculiX/Abaqus)</li>
-        </ul>
-      </div>
-    </div>
+  <section id="themen">
+    <h2>Kompetenzfelder</h2>
+    <ul>
+      <li>Materialanalyse und -charakterisierung (PLA, PETG, TPU)</li>
+      <li>Prozess–Struktur–Eigenschafts-Kopplung</li>
+      <li>Simulation und FE-Modellierung (CalculiX, Abaqus)</li>
+      <li>Entwicklung von Python‑Toolchains für Additive Manufacturing</li>
+      <li>Geometrie‑, Orientierungs‑ und Füllgrad‑Mapping</li>
+      <li>Entwurf und Konfiguration spezieller Drucksysteme (z. B. Polar/Core‑R‑Theta)</li>
+      <li>Beratung zu Open‑Source‑basierten CAE‑ und AM‑Workflows</li>
+    </ul>
   </section>
 
-  <section id="referenzen" class="wrap">
-    <h2>Beispiele & Ergebnisse</h2>
-    <div class="split">
-      <div class="card p">
-        <h3>Projekt: TPU‑Charakterisierung 90A & Simulation</h3>
-        <p class="muted">Thermische Analytik (DSC/TGA/IR), DoE‑basierte Druckparameter, bilinearer Fit vs. Pseudo‑Hill, Validierung über Zugstäbe 0/45/90°; Ableitung eines Materialmodells für FE inkl. Orientierungsmapping.</p>
-        <ul class="list">
-          <li>Ergebnis: belastbare Vorhersage in frühen Designphasen</li>
-          <li>Stack: Python, CalculiX, Gmsh, meshio, PyVista</li>
-        </ul>
-      </div>
-      <div class="card p">
-        <h3>Projekt: Polar/Core‑R‑Theta‑Drucker</h3>
-        <p class="muted">Konfiguration (FLY RRF E3 PRO V1), Sensorless Homing, Synchronachsen (X), Extruder‑Rotation, Heizbett‑Einbindung; Ziel: RRF‑Config & Kinematik‑Validierung.</p>
-        <ul class="list">
-          <li>Ergebnis: reproduzierbare Bewegung & Homing‑Abläufe</li>
-          <li>Stack: RRF, Kinematics, Open‑Hardware</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  
-
-  <section id="kontakt" class="wrap">
+  <section id="kontakt">
     <h2>Kontakt</h2>
-    <div class="split">
-      <form class="card p" action="mailto:DEINE.EMAIL@BEISPIEL.DE" method="post" enctype="text/plain">
-        <label>Name<br><input required name="name" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--text)"></label><br><br>
-        <label>E‑Mail<br><input required type="email" name="email" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--text)"></label><br><br>
-        <label>Nachricht<br><textarea required name="message" rows="5" style="width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.04);color:var(--text)"></textarea></label><br><br>
-        <button class="button" type="submit">Anfrage senden</button>
-        <p class="notice">Tipp: Für professionelle Formulare kannst du später z. B. <u>Formspree</u> (kostenloser Plan) integrieren – ohne Cookies.</p>
+    <div class="card">
+      <form action="mailto:DEINE.EMAIL@BEISPIEL.DE" method="post" enctype="text/plain">
+        <label>Name<br><input name="name" required style="width:100%;padding:10px;margin-top:5px;margin-bottom:15px;border-radius:8px;border:var(--border);background:var(--bg-2)"></label><br>
+        <label>E‑Mail<br><input type="email" name="email" required style="width:100%;padding:10px;margin-top:5px;margin-bottom:15px;border-radius:8px;border:var(--border);background:var(--bg-2)"></label><br>
+        <label>Nachricht<br><textarea name="message" rows="5" required style="width:100%;padding:10px;border-radius:8px;border:var(--border);background:var(--bg-2)"></textarea></label><br>
+        <button class="button" type="submit">Nachricht senden</button>
       </form>
-      <div class="card p">
-        <h3>Direkt</h3>
-        <p class="fine">E‑Mail: <a href="mailto:DEINE.EMAIL@BEISPIEL.DE">DEINE.EMAIL@BEISPIEL.DE</a><br> Standort: Deutschland · Remote & vor Ort nach Absprache</p>
-        <p class="fine">Aktuelle Portfolio‑Site: <a href="https://jonasehrmann.github.io" target="_blank" rel="noopener">jonasehrmann.github.io</a></p>
-        <p class="pill">🍪 Keine Cookies · Kein Tracking</p>
-      </div>
     </div>
   </section>
 
-  <section id="impressum" class="wrap">
-    <h2>Impressum (DE Muster – anpassen)</h2>
-    <div class="card p legal">
+  <section id="impressum">
+    <h2>Impressum</h2>
+    <div class="card">
       <p><b>Unternehmensname:</b> Ehrmann Engineering</p>
       <p><b>Verantwortlich:</b> Jonas Ehrmann</p>
-      <p><b>Adresse:</b> [Straße Hausnummer], [PLZ] [Ort], Deutschland</p>
-      <p><b>Kontakt:</b> E‑Mail wie oben · Telefon optional</p>
-      <p><b>USt‑IdNr.:</b> falls vorhanden eintragen</p>
-      <p class="notice">Hinweis: Bitte die rechtlich korrekten Angaben eintragen (Pflichtangaben nach § 5 TMG). Bei Freiberuf/UG ggf. ergänzen.</p>
-    </div>
-  </section>
-
-  <section id="datenschutz" class="wrap">
-    <h2>Datenschutz (kurz & ohne Cookies)</h2>
-    <div class="card p legal">
-      <p>Diese Website verwendet keine Cookies, keine Tracker und keine externen Schriftarten. Server‑Logs (GitHub Pages) können IP‑Adressen in anonymisierter Form speichern. Bei Kontakt per E‑Mail werden die übermittelten Daten zur Bearbeitung der Anfrage verarbeitet.</p>
-      <ul class="list">
-        <li><b>Verantwortlicher:</b> Jonas Ehrmann (Adresse siehe Impressum)</li>
-        <li><b>Zweck:</b> Kommunikation und Angebotslegung</li>
-        <li><b>Rechtsgrundlage:</b> Art. 6 Abs. 1 lit. b DSGVO</li>
-        <li><b>Speicherdauer:</b> gemäß gesetzlicher Aufbewahrungspflichten</li>
-        <li><b>Betroffenenrechte:</b> Auskunft, Berichtigung, Löschung, Einschränkung</li>
-      </ul>
-      <p class="notice">Falls du später ein Formular‑Dienst nutzt, ergänze hier die Angaben zum Anbieter (z. B. Formspree) inkl. Auftragsverarbeitung.</p>
+      <p><b>Adresse:</b> [Straße, PLZ, Ort]</p>
+      <p><b>E‑Mail:</b> DEINE.EMAIL@BEISPIEL.DE</p>
+      <p><b>Hinweis:</b> Diese Website verwendet keine Cookies oder Tracking‑Tools.</p>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap footer-grid">
-    <div>
-      <div class="brand"><div class="logo"><svg viewBox="0 0 24 24"><path d="M12 2l7 4v6l-7 4-7-4V6l7-4z"/></svg></div><b>Ehrmann Engineering</b></div>
-      <p class="fine">Additive Fertigung · Simulation · Toolchains<br>Open‑Source‑First · Industriell & akademisch fundiert</p>
-    </div>
-    <div>
-      <p class="fine"><b>Navigation</b><br>
-        <a href="#leistungen">Leistungen</a><br>
-        <a href="#referenzen">Referenzen</a><br>
-        
-        <a href="#kontakt">Kontakt</a>
-      </p>
-    </div>
-    <div>
-      <p class="fine"><b>Rechtliches</b><br>
-        <a href="#impressum">Impressum</a><br>
-        <a href="#datenschutz">Datenschutz</a>
-      </p>
-      <p class="notice">© <span id="y"></span> Ehrmann Engineering.</p>
-    </div>
+  <div class="wrap">
+    <p>© <span id="y"></span> Ehrmann Engineering</p>
+    <p>Beratung · Forschung · Entwicklung in Additiver Fertigung und Simulation</p>
   </div>
 </footer>
-
-<div class="lang"><div class="card p"><b>Sprache</b><br>
-  <button class="button" onclick="setLang('de')">DE</button>
-  <button class="button secondary" onclick="setLang('en')">EN</button>
-</div></div>
-
 <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
-
-<!--
-====================
-Deployment (Option B, eigenes Repo):
-1) Neues Repo z. B. consulting-site anlegen.
-2) Diese Datei als index.html ins Repo legen (Root).
-3) Settings → Pages → Deploy from branch (main) / root.
-4) Optional: CNAME setzen für Subdomain (consulting.deine-domain.de) und DNS CNAME → <user>.github.io.
-5) Impressum/Adresse/Email in diesem Dokument anpassen.
-====================
--->
-
 </body>
 </html>
+
